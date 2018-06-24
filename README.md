@@ -1,4 +1,4 @@
-#项目构建: 使用 cnpm init webpack (project)
+#项目构建: 使用 cnpm init webpack (project)<br />
 ##引入初始化css用rem做适配: ~styles/reset.css
 ###引入fastclick做点击事件处理: cnpm install fastclick --save
 //mian.js引入 fastclick  import fastClick from 'fastclick fastClick.attach(document.body)
