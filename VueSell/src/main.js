@@ -3,9 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+//导入fastclick
+import fastClick from 'fastclick'
+import axios from 'axios'
+import 'styles/reset.css'
 
 Vue.config.productionTip = false
-
+//使用全局添加在原型上面
+Vue.prototype.$http = axios
+//引用fastclick
+fastClick.attach(document.body)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
