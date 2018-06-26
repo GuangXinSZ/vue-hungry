@@ -1,16 +1,14 @@
 <template>
   <div class="app">
-   <commit-header></commit-header>
+   <commit-header :seller="seller"></commit-header>
     <div class="content">
       <ul class="conItem">
-        <li class="itemList">商品</li>
-        <li class="itemList">评价</li>
-        <li class="itemList">商家</li>
+        <li class="itemList"><router-link to="/index">商品</router-link></li>
+        <li class="itemList"><router-link to="/char">评论</router-link></li>
+        <li class="itemList"><router-link to="main">商家</router-link></li>
       </ul>
     </div>
-    <div class="footer">
-        商品显示
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -21,7 +19,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      seller: {},
+      goods: {}
     }
   },
   components: {
@@ -30,7 +29,13 @@ export default {
   mounted() {
     this.$http.get('/api/data.json')
     .then( (res) => {
-      console.log(res)
+     if(res.status == 200) {
+       this.seller = res.data.seller
+       this.goods = res.data.goods
+       console.log('====================================');
+       console.log(res);
+       console.log('====================================');
+     }
     } )
   },
 }
@@ -38,9 +43,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-  .header
-   width: 100%
-   height: 1.5rem
+      .router-link-exact-active
+       color: rgb(254,20,20) !important
   .content
    width: 100%
    height: .8rem 
@@ -53,4 +57,10 @@ export default {
      display: block
      font-size: 0.2rem
      text-align: center
+     & > a
+      display: block
+      width: 100%
+      height: 100%
+      color: rgb(77,85,93)
+     
 </style>
