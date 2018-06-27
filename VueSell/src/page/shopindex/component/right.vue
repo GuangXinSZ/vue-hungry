@@ -49,17 +49,12 @@ export default {
   methods: {
       getbuy(res) {
          let that = this
-         let array = []
-         let name = res.name
-         let price = res.price
-            array.push(name)
-            array.push(price)
-         if(array.length == 0 && array.length-1 == null){
+         if(res.length == 0 && res.length-1 == null){
              return false
          }
-         let result = JSON.stringify(array)
+         //let result = JSON.stringify(res)
          //使用vuex
-         this.$store.dispatch('addcar',result)
+         this.$store.dispatch('addcar',res)
       }
   },
   watch: {

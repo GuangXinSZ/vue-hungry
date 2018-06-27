@@ -25,7 +25,11 @@
             </div>
             <div class="shoplist">
                 <ul>
-                    <li>暂无数据</li>
+                    <li v-for="(item,index) of list" :key="index">
+                       <div class="listmain">
+                           <p class="shopname">{{ item.name }}</p>
+                       </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -42,17 +46,22 @@ export default {
   data () {
     return {
         num: 0,
-        show: false,
-        nothing: ''
+        show: true,
+        nothing: '',
+        list: ''
     };
   },
   created() {
       //获取length值
+      let that = this
       this.nothing = this.$store.state.goodslist.length
+      this.list = this.$store.state.goodslist
   },
   components: {},
 
-  computed: {},
+  computed: {
+
+  },
 
   methods: {
       ShowView(e){
@@ -96,6 +105,18 @@ export default {
    .clear
     margin: 0.3rem
     color: rgb(0,160,220)
+  .shoplist
+   width: 100%
+   ul
+    display: flex
+    flex-direction: column
+    li
+     border-bottom: 1px solid #ccc
+     margin: 0.2rem
+     padding-bottom: 0.2rem
+     .listmain
+      font-size: 0.33rem
+      color: rgb(7,17,27)
  .car
   width: 1.16rem
   height: 1.16rem
@@ -119,7 +140,6 @@ export default {
    height:0.5rem
    border-radius: 100%
    line-height: 0.5rem
-   
    exprose()
  .money
   color: white

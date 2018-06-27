@@ -15,10 +15,14 @@ export default new Vuex.Store ({
     },
     mutations: {
         addcar(state,res) {
-            state.goodslist.unshift(res)
-           for(var i=0;i<state.goodslist.length;i++){
-               console.log(state.goodslist[i])
-           }
+            state.goodslist.forEach( (item,index) =>{
+                if(item.name == res.name){
+                   state.goodslist.splice(index)
+                   alert("您已经添加")
+                   return false
+                }
+             })
+            state.goodslist.push(res)
         }
     }
 })

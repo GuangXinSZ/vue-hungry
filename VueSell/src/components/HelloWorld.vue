@@ -32,9 +32,6 @@ export default {
      if(res.status == 200) {
        this.seller = res.data.seller
        this.goods = res.data.goods
-       console.log('====================================');
-       console.log(res);
-       console.log('====================================');
      }
     } )
   },
