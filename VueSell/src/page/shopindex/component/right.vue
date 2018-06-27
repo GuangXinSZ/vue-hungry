@@ -17,7 +17,7 @@
                     <div class="addcar">
                         <span>-</span>
                         <span>{{ num }}</span>
-                        <span>+</span> 
+                        <span @click="getbuy(item)">+</span> 
                     </div>
                 </div>  
               </div>
@@ -46,7 +46,22 @@ export default {
 
   computed: {},
 
-  methods: {},
+  methods: {
+      getbuy(res) {
+         let that = this
+         let array = []
+         let name = res.name
+         let price = res.price
+            array.push(name)
+            array.push(price)
+         if(array.length == 0 && array.length-1 == null){
+             return false
+         }
+         let result = JSON.stringify(array)
+         //使用vuex
+         this.$store.dispatch('addcar',result)
+      }
+  },
   watch: {
       letter() {
           if(this.letter){

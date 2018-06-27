@@ -6,6 +6,8 @@ import router from './router'
 //导入fastclick
 import fastClick from 'fastclick'
 import axios from 'axios'
+//使用vuex
+import store from './store'
 import 'styles/reset.css'
 
 Vue.config.productionTip = false
@@ -19,6 +21,7 @@ fastClick.attach(document.body)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
