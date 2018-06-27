@@ -14,15 +14,21 @@
                     <p class="list-fish">{{ item.description }}</p>
                     <p class="list-sell">月售{{ item.rating }}份<span>好评100%</span></p>
                     <p class="list-money"><span class="one">￥{{ item.price }}</span><span class="two" v-show="item.oldPrice">￥{{item.oldPrice}}</span></p>
-                </div>
+                    <div class="addcar">
+                        <span>-</span>
+                        <span>{{ num }}</span>
+                        <span>+</span> 
+                    </div>
+                </div>  
               </div>
+             
           </li>
       </ul>
   </div>
 </template>
 
-<script>
-import Bscroll from 'better-scroll'
+<script>    
+import Bscroll from 'better-scroll'     
 export default {
  props: {
      goodsList: [Object,Array,String],
@@ -30,6 +36,7 @@ export default {
  },
   data () {
     return {
+        num: 0
     };
   },
   mounted(){
@@ -52,13 +59,15 @@ export default {
 
 </script>
 <style lang='stylus' scoped>
+@import '~styles/mixin.styl'
+@import '~styles/varibes.styl'  
 .headrig
  overflow: hidden
  position: absolute
  left: 24%
  top: 3.5rem
  width: 76%
- height: 10rem  
+ height: 9.8rem  
  .head-mian
   width: 100%
   .list-item
@@ -68,6 +77,7 @@ export default {
     color:rgb(147,153,153)
     background: #f3f5f7 
     border-left:0.1rem solid #d9dde1
+    exprose()
    .list-inter
     display: flex
     .list-left
@@ -80,7 +90,10 @@ export default {
        width: 100%
        height: 100%
     .list-right
+     position: relative
+     width: 100%
      .list-title
+      exprose()
       font-size: 0.3rem
       color: rgb(7,17,27)
       line-height: 0.3rem
@@ -90,19 +103,29 @@ export default {
       color: rgb(147,153,159)
       line-height: 0.21rem
       margin-top: 0.16rem
+      exprose()
      .list-sell
       font-size: 0.26rem
       color: rgb(147,153,159)
       margin-top: 0.16rem
+      exprose()
      .list-money
       .one
        font-size: 0.4rem
        color: red
        font-weight: 700
        line-height: 40px
+       exprose()
       .two
        font-size: 0.3rem
        color: rgb(147,153,159)
        font-weight: 700
        line-height: 40px
+       exprose()
+     .addcar
+      position: absolute
+      right: 0.2rem
+      bottom: 0.2rem
+      color: red
+      font-size: 0.34rem
 </style>

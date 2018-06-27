@@ -3,13 +3,17 @@
     <keep-alive>
       <index-left :goods="goods" @getchange="changeLetter"></index-left>
     </keep-alive>
+    <keep-alive>
      <index-right :goodsList="goods" :letter="letter"></index-right>
+    </keep-alive>
+    <my-shop></my-shop>
   </div>
 </template>
 
 <script>
 import IndexLeft from './component/left'
 import IndexRight from './component/right'
+import MyShop from './component/myshop'
 export default {
   data () {
     return {
@@ -23,7 +27,8 @@ export default {
   },
   components: {
     IndexLeft,
-    IndexRight
+    IndexRight,
+    MyShop
   },
   computed: {},
   methods: {
@@ -38,6 +43,8 @@ export default {
         for(var i=0;i<that.goods.length;i++){
           that.goodsList.push(that.goods[i].foods)
         }
+      }else if (res.status !== 200) {
+        console.log("连接报错")
       }
     },
     changeLetter(res){
@@ -46,7 +53,8 @@ export default {
     }
   }
 }
-
 </script>
 <style lang='stylus' scoped>
+
+
 </style>
