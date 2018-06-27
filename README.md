@@ -18,5 +18,7 @@
 
 
 >今天天已经完成主页面开发 商品切换
+>>图片
+![Image_text](https://raw.githubusercontent.com/AnimationXin/JavaScript/master/%E4%BB%8E0%E5%BC%80%E5%A7%8B/images/hungry.png)
   开发中.......
  
