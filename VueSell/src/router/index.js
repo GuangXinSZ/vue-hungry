@@ -15,6 +15,10 @@ const router = new VueRouter({
 
 export default new Router({
   routes: [
+     {
+       path: '/',
+       redirect: '/index'
+     },
     {
       path: '/',
       name: 'HelloWorld',

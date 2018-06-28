@@ -21,13 +21,13 @@
         <div class="view" ref="cookie" v-if="show">
             <div class="title">
                 <span class="name">购物车</span>
-                <span class="clear">清空</span>
+                <span class="clear" @click="clearall">清空</span>
             </div>
             <div class="shoplist">
                 <ul>
                     <li v-for="(item,index) of list" :key="index">
-                       <div class="listmain">
-                           <p class="shopname">{{ item.name }}</p>
+                       <div class="listmain" >
+                           <p  class="shopname">{{ item.name }} <span ref="shopprice" >￥{{ item.price }}</span> </p>
                        </div>
                     </li>
                 </ul>
@@ -46,9 +46,10 @@ export default {
   data () {
     return {
         num: 0,
-        show: true,
+        show: false,
         nothing: '',
-        list: ''
+        list: '',
+        totalprice: 0
     };
   },
   created() {
@@ -56,17 +57,33 @@ export default {
       let that = this
       this.nothing = this.$store.state.goodslist.length
       this.list = this.$store.state.goodslist
+      
+  },
+  mounted () {
+       let allmoney = this.$refs.shopprice
+      
   },
   components: {},
 
-  computed: {
-
-  },
-
+    updated(){
+        this.count()
+    },
   methods: {
       ShowView(e){
           let view = this.$refs.cookie
-          console.log(view)
+      },
+      clearall () {
+         
+          this.$store.dispatch('clearall')
+      },
+      //计算价格
+      count () {
+          let totalprice = 0
+          let best = 0
+          this.list.forEach( (item,index) => {
+              totalprice +=item.price
+          })
+          this.num = totalprice
       }
   }
 }
@@ -111,6 +128,7 @@ export default {
     display: flex
     flex-direction: column
     li
+     display: flex
      border-bottom: 1px solid #ccc
      margin: 0.2rem
      padding-bottom: 0.2rem
