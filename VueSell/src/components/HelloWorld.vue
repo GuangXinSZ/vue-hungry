@@ -9,12 +9,14 @@
       </ul>
     </div>
     <router-view></router-view>
+    <my-shop></my-shop>
   </div>
 </template>
 
 <script>
 // import axios from 'axios'
 import CommitHeader from 'temp/top/Header'
+import MyShop from 'temp/shopindex/component/myshop'
 export default {
   name: 'HelloWorld',
   data () {
@@ -24,7 +26,8 @@ export default {
     }
   },
   components: {
-    CommitHeader
+    CommitHeader,
+    MyShop
   },
   mounted() {
     this.$http.get('/api/data.json')

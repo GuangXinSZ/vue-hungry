@@ -8,15 +8,23 @@ import fastClick from 'fastclick'
 import axios from 'axios'
 //使用vuex
 import store from './store'
+//使用elementui
+import ElementUI from 'element-ui'
+//引入css
+import 'element-ui/lib/theme-chalk/index.css'
+
 import 'styles/reset.css'
 
 Vue.config.productionTip = false
 //使用全局添加在原型上面
 Vue.prototype.$http = axios
 
-
 //引用fastclick
 fastClick.attach(document.body)
+
+//使用element ui
+Vue.use(ElementUI)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

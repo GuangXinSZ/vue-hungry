@@ -41,6 +41,11 @@ export default {
   },
   mounted(){
       this.scroll = new Bscroll(this.$refs.wrapper)
+      this.$nextTick(function () {
+        this.$on('childMethod', function () {
+          console.log('监听成功')
+        })
+      })
   },
   components: {},
 
@@ -55,7 +60,10 @@ export default {
          //let result = JSON.stringify(res)
          //使用vuex
          this.$store.dispatch('addcar',res)
-      }
+      },
+      callMethod () {
+        console.log("调用成功")
+    }
   },
   watch: {
       letter() {

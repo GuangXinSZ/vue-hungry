@@ -3,10 +3,11 @@
     <keep-alive>
       <index-left :goods="goods" @getchange="changeLetter"></index-left>
     </keep-alive>
+      <!-- <div class="lok" @click="click">父调子</div> -->
     <keep-alive>
-     <index-right :goodsList="goods" :letter="letter"></index-right>
+     <index-right :goodsList="goods" :letter="letter" ref="child" @click="click" ></index-right>
     </keep-alive>
-    <my-shop></my-shop>
+
   </div>
 </template>
 
@@ -50,11 +51,23 @@ export default {
     changeLetter(res){
       //接收子传父
       this.letter = res
+    },
+    //直接调用子的方法
+    click () {
+      this.$refs.child.$emit('childMethod')
+      // this.$refs.child.callMethod()
+      this.$refs.child.callMethod()
     }
+  
   }
 }
 </script>
 <style lang='stylus' scoped>
-
+.lok
+ position: absolute
+ top:0 
+ left: 0
+ background: red 
+ color: white
 
 </style>

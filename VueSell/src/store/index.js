@@ -20,7 +20,6 @@ export default new Vuex.Store ({
     mutations: {
         addcar(state,res) {
             state.goodslist.forEach( (item,index) =>{
-                
                 if(item.name == res.name){
                    state.goodslist.splice(index)
                    alert("您已经添加")
@@ -28,7 +27,6 @@ export default new Vuex.Store ({
                 }
              })
             state.goodslist.push(res)
-           
         },
         clearall(state,res){
            let that = state.goodslist
