@@ -37,7 +37,6 @@ export default {
 </script>
 <style lang='stylus' scoped>
 .el-row {
-   
     &:last-child {
       margin-bottom: 0;
     }

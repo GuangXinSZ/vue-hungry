@@ -27,7 +27,13 @@
                 <ul>
                     <li v-for="(item,index) of list" :key="index">
                        <div class="listmain" >
-                           <p  class="shopname">{{ item.name }} <span ref="shopprice" >￥{{ item.price }}</span> </p>
+                           <p  class="shopname">{{ item.name }} <span ref="shopprice" >￥{{ item.price }}</span> 
+                           </p>
+                           <P class="shopright">
+                            <i class="el-icon-remove"></i>
+                             <span :ref="index">{{ totalprice }}</span>
+                            <i @click="add" class="el-icon-circle-plus"></i>
+                           </P>
                        </div>
                     </li>
                 </ul>
@@ -49,7 +55,8 @@ export default {
         show: false,
         nothing: '',
         list: '',
-        totalprice: 0
+        totalprice: 0,
+        arr: []
     };
   },
   created() {
@@ -57,14 +64,11 @@ export default {
       let that = this
       this.nothing = this.$store.state.goodslist.length
       this.list = this.$store.state.goodslist
-      
   },
   mounted () {
        let allmoney = this.$refs.shopprice
-      
   },
   components: {},
-
     updated(){
         this.count()
     },
@@ -73,7 +77,6 @@ export default {
           let view = this.$refs.cookie
       },
       clearall () {
-         
           this.$store.dispatch('clearall')
       },
       //计算价格
@@ -84,6 +87,14 @@ export default {
               totalprice +=item.price
           })
           this.num = totalprice
+      },
+      getall() {
+            this.list.forEach( (item,index) => {
+                this.arr.push(index)
+        } )
+      },
+      add(){
+          console.log(this.$refs[0][0])
       }
   }
 }
@@ -128,13 +139,19 @@ export default {
     display: flex
     flex-direction: column
     li
+     position: relative
      display: flex
      border-bottom: 1px solid #ccc
      margin: 0.2rem
      padding-bottom: 0.2rem
      .listmain
+      display: flex
+      justify-content: space-between
       font-size: 0.33rem
       color: rgb(7,17,27)
+      .shopright
+       position: absolute
+       right:0.2rem
  .car
   width: 1.16rem
   height: 1.16rem

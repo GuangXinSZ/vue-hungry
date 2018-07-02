@@ -31,7 +31,6 @@ export default new Vuex.Store ({
         clearall(state,res){
            let that = state.goodslist
           if(that.length == 0) {
-              alert('购物车为空')
               return false
           }
           state.goodslist.forEach( (item,index) =>{
