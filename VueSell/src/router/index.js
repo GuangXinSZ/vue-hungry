@@ -4,7 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import ShopIndex from 'temp/shopindex/ListIndex'
 import ShopChar from 'temp/shopchants/CharIndex'
 import ShopMain from 'temp/shopmain/MainIndex'
-import VueRouter from 'vue-router';
+import Login from 'temp/Login/login'
+import VueRouter from 'vue-router'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
   routes: [
      {
        path: '/',
-       redirect: '/char'
+       redirect: '/login'
      },
     {
       path: '/',
@@ -35,11 +36,20 @@ export default new Router({
           component: ShopChar
         },
         {
-          path: 'main',
+          path: '/main',
           name: 'ShopMain',
           component: ShopMain
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        title: '',
+        requireAuth: true,
+      },
     }
   ]
 })

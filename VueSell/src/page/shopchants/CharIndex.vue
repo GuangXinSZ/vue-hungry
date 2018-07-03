@@ -1,22 +1,7 @@
 <!--  -->
 <template>
   <div>
-      <el-button type="success" icon="el-icon-search">成功按钮</el-button>
-      <el-row>
-        <el-col :span="24"><div class="grid-content bg-purple-dark">1</div></el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="8"><div class="grid-content bg-purple-dark">1</div></el-col>
-        <el-col :span="8" :offset="8"><div class="grid-content bg-purple-dark">1</div></el-col>
-      </el-row>
-    <!-- center end  space-between space-around -->
-      <el-row type="flex" justify="center">
-              <el-col :span="6"><div class="grid-content bg-purple-dark">1</div></el-col>
-              <el-col :span="6"><div class="grid-content bg-purple-dark">1</div></el-col>
-              <el-col :span="6"><div class="grid-content bg-purple-dark">1</div></el-col>
-      </el-row>
-      <i class="el-icon-loading"></i>
-        <el-button type="danger" icon="el-icon-delete" circle></el-button>
+     <mt-button @click.native="handleClick">按钮</mt-button>
   </div>
 </template>
 
@@ -31,7 +16,11 @@ export default {
 
   computed: {},
 
-  methods: {}
+  methods: {
+    handleClick(){
+      this.$toast("123")
+    }
+  }
 }
 
 </script>
