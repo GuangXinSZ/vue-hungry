@@ -50,7 +50,7 @@ export default {
         this.username = ''
         this.password = ''
     },
-    //冒泡排序
+    // 冒泡排序
     bubbleSort(arr) {
         var len = arr.length;
         for (var i = 0; i < len; i++) {

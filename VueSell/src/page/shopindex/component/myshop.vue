@@ -1,4 +1,3 @@
-<!--  -->
 <template>
 <div>
   <div class="myshop">
@@ -14,8 +13,8 @@
      <div class="poor">
          配送费￥4起步
      </div>
-     <div class="start">
-         ￥20元起送
+     <div class="start" @click="send">
+         物流信息
     </div>
     <transition name="fade">
         <div class="view" ref="cookie" v-if="show">
@@ -41,10 +40,10 @@
         </div>
     </transition>
   </div>
-<div class="viewtow"  v-if="show">
+    <div class="viewtow"  v-if="show">
 
-</div>
-</div>
+    </div>
+</div>  
 </template>
 
 <script>
@@ -91,10 +90,13 @@ export default {
       getall() {
             this.list.forEach( (item,index) => {
                 this.arr.push(index)
-        } )
+        })
       },
       add(){
           console.log(this.$refs[0][0])
+      },
+      send(){
+          this.$router.push('/state')
       }
   }
 }

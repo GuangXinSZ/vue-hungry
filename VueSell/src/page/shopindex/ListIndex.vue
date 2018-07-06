@@ -7,7 +7,6 @@
     <keep-alive>
      <index-right :goodsList="goods" :letter="letter" ref="child" @click="click" ></index-right>
     </keep-alive>
-
   </div>
 </template>
 

@@ -15,20 +15,19 @@
                     <p class="list-sell">月售{{ item.rating }}份<span>好评100%</span></p>
                     <p class="list-money"><span class="one">￥{{ item.price }}</span><span class="two" v-show="item.oldPrice">￥{{item.oldPrice}}</span></p>
                     <div class="addcar">
-                        <span>-</span>
-                        <span>{{ num }}</span>
-                        <span @click="getbuy(item)">+</span> 
+                        <span class="buffer" @click="getbuy(item)">+</span> 
                     </div>
                 </div>  
               </div>
-             
           </li>
       </ul>
+     <view-list></view-list>
   </div>
 </template>
 
 <script>    
-import Bscroll from 'better-scroll'     
+import Bscroll from 'better-scroll'
+import ViewList from './view'  
 export default {
  props: {
      goodsList: [Object,Array,String],
@@ -36,8 +35,9 @@ export default {
  },
   data () {
     return {
-        num: 0
-    };
+        num: 0,
+        myfood: false
+    };  
   },
   mounted(){
       this.scroll = new Bscroll(this.$refs.wrapper)
@@ -47,19 +47,20 @@ export default {
         })
       })
   },
-  components: {},
+  components: {
+      ViewList
+  },
 
   computed: {},
 
   methods: {
       getbuy(res) {
          let that = this
-         if(res.length == 0 && res.length-1 == null){
-             return false
-         }
+         
+         this.myfood = !this.myfood
          //let result = JSON.stringify(res)
          //使用vuex
-         this.$store.dispatch('addcar',res)
+         this.$store.dispatch('show',res)
       },
       callMethod () {
         console.log("调用成功")
@@ -67,10 +68,10 @@ export default {
   },
   watch: {
       letter() {
-          if(this.letter){
+          //bug
               const element = this.$refs[this.letter][0]
+              console.log(HTMLButtonElement)
               this.scroll.scrollToElement(element)
-          }
       }
   }
 }
@@ -146,4 +147,12 @@ export default {
       bottom: 0.2rem
       color: red
       font-size: 0.34rem
+      .buffer
+       display: inline-block
+       width: 0.3rem
+       height: 0.3rem
+       line-height: 0.3rem
+       text-align: center
+       border:1px solid red
+       border-radius: 50px 50px
 </style>

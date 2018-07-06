@@ -5,6 +5,7 @@ import ShopIndex from 'temp/shopindex/ListIndex'
 import ShopChar from 'temp/shopchants/CharIndex'
 import ShopMain from 'temp/shopmain/MainIndex'
 import Login from 'temp/Login/login'
+import Logistics from 'temp/Logistics/index'
 import VueRouter from 'vue-router'
 
 Vue.use(Router)
@@ -48,9 +49,14 @@ export default new Router({
       component: Login,
       meta: {
         title: '',
-        requireAuth: true,
+        requireAuth: true
       },
-    }
+      
+    },{
+        path: '/state',
+        name: 'state',
+        component:  Logistics
+      }
   ]
 })
 

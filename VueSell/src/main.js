@@ -31,7 +31,6 @@ Vue.use(ElementUI)
 Vue.use(Mint)
 /* eslint-disable no-new */
 //登录拦截
-
 new Vue({
   el: '#app',
   router,

@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-        currIndex: 1
+        currIndex: 0
     };
   },
   mounted () {
