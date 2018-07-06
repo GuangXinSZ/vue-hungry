@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="myshop">
-     <div class="car" v-on:click="show = !show">
+     <div class="car" @click="show = !show">
          购物车
          <div class="num">
              {{ this.$store.state.goodslist.length }}
