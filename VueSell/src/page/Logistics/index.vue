@@ -16,10 +16,12 @@
       <section class="logisList" v-if="currindex == 1">
         <ul>
           <li v-for="(items,index) of alreadyBuy" :key="index">
-            <div class="imgShop">
-                <img :src=" items.avatar" />
-            </div>
+            <div class="imgMain">
+               <div class="imgShop">
+                 <img :src=" items.avatar" />
+              </div>
             {{ items.name }}
+            </div>
           </li>
         </ul>
       </section>
@@ -72,6 +74,11 @@ export default {
           avatar: "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
           name: '未付款',
           id: 4
+        },
+        {
+          avatar: "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
+          name: '已购买',
+          id: 1
         },
         {
           avatar: "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
@@ -169,6 +176,20 @@ export default {
    display: block
    text-align: center
    box-sizing: border-box
+
 .logisList
  margin-top: 0.2rem
+ ul
+  li
+   .imgMain
+    margin: 0.2rem
+    display: flex
+    .imgShop
+     width: 2.4rem
+     height: 2.4rem
+     border-radius: 50%
+     overflow hidden
+     img
+      width: 100%
+      height: 100%
 </style>
