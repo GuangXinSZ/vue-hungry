@@ -6,6 +6,7 @@ import ShopChar from 'temp/shopchants/CharIndex'
 import ShopMain from 'temp/shopmain/MainIndex'
 import Login from 'temp/Login/login'
 import Logistics from 'temp/Logistics/index'
+import GoodsDetail from 'temp/goodsDetail/detail'
 import VueRouter from 'vue-router'
 
 Vue.use(Router)
@@ -19,7 +20,7 @@ export default new Router({
   routes: [
      {
        path: '/',
-       redirect: '/login'
+       redirect: '/index/detail'
      },
     {
       path: '/',
@@ -56,6 +57,11 @@ export default new Router({
         path: '/state',
         name: 'state',
         component:  Logistics
+      },
+      {
+        path: '/index/detail',
+        name: 'GoodsDetail',
+        component: GoodsDetail
       }
   ]
 })
