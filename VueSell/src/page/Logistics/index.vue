@@ -20,7 +20,12 @@
                <div class="imgShop">
                  <img :src=" items.avatar" />
               </div>
-            {{ items.name }}
+              <div class="imgName">
+                {{ items.name }}
+              </div>
+              <div class="imgClose">
+                X
+              </div>
             </div>
           </li>
         </ul>
@@ -28,23 +33,51 @@
       <section class="logisList" v-if="currindex == 2 ">
          <ul>
             <li v-for="(items,index) of alreadyDelivery" :key="index">
-              {{ items.name }}
+            <div class="imgMain">
+               <div class="imgShop">
+                 <img :src=" items.avatar" />
+              </div>
+            <div class="imgName">
+                {{ items.name }}
+              </div>
+              <div class="imgClose">
+                X
+              </div>
+            </div>
           </li>
         </ul>
       </section>
        <section class="logisList" v-if="currindex == 3 ">
          <ul>
            <li v-for="(items,index) of noDelivery" :key="index">
-              <img :src=" items.avatar" />
-            {{ items.name }}
+              <div class="imgMain">
+               <div class="imgShop">
+                 <img :src=" items.avatar" />
+              </div>
+             <div class="imgName">
+                {{ items.name }}
+              </div>
+              <div class="imgClose">
+                X
+              </div>
+            </div>
           </li>
         </ul>
       </section>
        <section class="logisList" v-if="currindex == 4 ">
          <ul>
           <li v-for="(items,index) of noPayment" :key="index">
-             
-            {{ items.name }}
+           <div class="imgMain">
+               <div class="imgShop">
+                 <img :src=" items.avatar" />
+              </div>
+            <div class="imgName">
+                {{ items.name }}
+              </div>
+              <div class="imgClose">
+                X
+              </div>
+            </div>
           </li>
         </ul>
       </section>
@@ -95,6 +128,11 @@ export default {
           name: '未发货',
           id: 3
         },
+         {
+          avatar: "http://static.galileo.xiaojukeji.com/static/tms/default_header.png",
+          name: '已发货',
+          id: 3,
+        },
       ]
     };
   },
@@ -103,6 +141,7 @@ export default {
 
   computed: {},
   mounted() {
+    //初始化数据
       this.getMessage();
   },
   methods: {
@@ -176,20 +215,31 @@ export default {
    display: block
    text-align: center
    box-sizing: border-box
-
 .logisList
  margin-top: 0.2rem
  ul
   li
+   position: relative
+   padding-bottom: 0.2rem
+   border-bottom: 1px  solid #ccc
    .imgMain
     margin: 0.2rem
     display: flex
     .imgShop
-     width: 2.4rem
-     height: 2.4rem
+     width: 2rem
+     height: 2rem
      border-radius: 50%
      overflow hidden
      img
       width: 100%
       height: 100%
+    .imgName
+     font-size: 0.3rem
+     margin: 0.2rem
+     color: #616161
+    .imgClose
+     position: absolute
+     right:0.2rem
+     top: 0.2rem
+     font-size: 0.4rem
 </style>
