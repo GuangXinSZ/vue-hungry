@@ -29,7 +29,6 @@ export default new Vuex.Store ({
     },
     mutations: {
         addcar(state,res) {
-            
             state.goodslist.forEach( (item,index) =>{
                 if(item.name == res.name){
                    state.goodslist.splice(index,1)

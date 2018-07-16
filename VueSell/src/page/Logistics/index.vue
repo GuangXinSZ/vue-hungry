@@ -3,8 +3,8 @@
   <div>
     <div class="logisTitle">
       <div class="brack" @click="back">返回</div>
-        管理中心
-    </div>
+                管理中心
+      </div>
       <header class="logisShopping">
         <ul class="list" v-for="(item,index) of showTab" :key="index">
           <li @click="indexItem(1)" :class="currindex == 1 ? 'colorBtn' : 'blueBtn' ">{{ item.alreadyBuy }}</li>
@@ -23,13 +23,14 @@
               <div class="imgName">
                 {{ items.name }}
               </div>
-              <div class="imgClose">
+              <div class="imgClose" @click="closeshop(index,1)">
                 X
               </div>
             </div>
           </li>
         </ul>
       </section>
+      <section></section>
       <section class="logisList" v-if="currindex == 2 ">
          <ul>
             <li v-for="(items,index) of alreadyDelivery" :key="index">
@@ -40,9 +41,9 @@
             <div class="imgName">
                 {{ items.name }}
               </div>
-              <div class="imgClose">
+              <!-- <div class="imgClose" @click="closeshop(index,2)">
                 X
-              </div>
+              </div> -->
             </div>
           </li>
         </ul>
@@ -57,9 +58,9 @@
              <div class="imgName">
                 {{ items.name }}
               </div>
-              <div class="imgClose">
+              <!-- <div class="imgClose" @click="closeshop(index,3)">
                 X
-              </div>
+              </div> -->
             </div>
           </li>
         </ul>
@@ -74,14 +75,13 @@
             <div class="imgName">
                 {{ items.name }}
               </div>
-              <div class="imgClose">
+              <div class="imgClose" @click="closeshop(index,4)">
                 X
               </div>
             </div>
           </li>
         </ul>
-      </section>
-      
+      </section> 
   </div>
 </template>
 
@@ -153,6 +153,22 @@ export default {
     back(){
       //返回上一页
       this.$router.go(-1)
+    },
+    closeshop(index,num){
+      //判断类型
+      if(num == 1 && num !== null){
+        if(num){
+          this.alreadyBuy.splice(index,1)
+        }
+      }else if (num == 2){
+        this.alreadyDelivery.splice(index,1)
+      }else if (num == 3){
+        this.noDelivery.splice(index,1)
+      }else if (num == 4){
+        this.noPayment.splice(index,1)
+      }else{
+        console.log('1')
+      }
     },
     getMessage(){
        let copShop = this.shop
