@@ -44,12 +44,12 @@ export default new Vuex.Store ({
         },
         clearall(state,res){
            let that = state.goodslist
-          if(that.length == 0) {
-              return false
-          }
-          state.goodslist.forEach( (item,index) =>{
-              state.goodslist.splice(item)
-          } )          
+            if(that.length == 0) {
+                return false
+            }
+            state.goodslist.forEach( (item,index) =>{
+                state.goodslist.splice(item)
+            } )          
         },
         close(state,res){
             state.num =res
