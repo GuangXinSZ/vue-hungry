@@ -70,7 +70,7 @@ export default {
       letter() {
           //bug
               const element = this.$refs[this.letter][0]
-              console.log(HTMLButtonElement)
+            //   console.log(HTMLButtonElement)
               this.scroll.scrollToElement(element)
       }
   }

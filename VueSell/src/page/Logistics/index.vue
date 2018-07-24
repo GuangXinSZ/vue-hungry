@@ -41,9 +41,7 @@
             <div class="imgName">
                 {{ items.name }}
               </div>
-              <!-- <div class="imgClose" @click="closeshop(index,2)">
-                X
-              </div> -->
+           
             </div>
           </li>
         </ul>
@@ -58,9 +56,6 @@
              <div class="imgName">
                 {{ items.name }}
               </div>
-              <!-- <div class="imgClose" @click="closeshop(index,3)">
-                X
-              </div> -->
             </div>
           </li>
         </ul>

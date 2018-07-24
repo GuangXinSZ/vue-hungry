@@ -70,7 +70,8 @@ export default {
     },
     reduce(){
       if(this.num < 2){
-        this.num = 1
+        this.num = 1;
+        return false
       }
       this.num--
     }

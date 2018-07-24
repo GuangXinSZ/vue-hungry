@@ -56,6 +56,8 @@ export default new Vuex.Store ({
             state.flag = false
         },
         show(state,res){
+            //给对象添加一个数量
+            res.alonePrice = 1
             state.aloneshop = res
             state.flag = true
         }
