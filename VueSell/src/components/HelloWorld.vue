@@ -17,6 +17,7 @@
 // import axios from 'axios'
 import CommitHeader from 'temp/top/Header'
 import MyShop from 'temp/shopindex/component/myshop'
+import restful from '../server/restful.js'
 export default {
   name: 'HelloWorld',
   data () {
@@ -29,15 +30,24 @@ export default {
     CommitHeader,
     MyShop
   },
-  mounted() {
-    this.$http.get('/api/data.json')
-    .then( (res) => {
-     if(res.status == 200) {
-       this.seller = res.data.seller
-       this.goods = res.data.goods
-     }
-    } )
+  methods: {
+    
   },
+  mounted() {
+
+  },
+  async created () {
+    // 捕获异常
+    let resful = await restful.getShopFull().then(res => {
+        this.seller = res.seller
+        this.goods = res.goods
+    }).catch((err) => {
+      this.$message({
+          type: 'info',
+          message: '失败'
+        })
+    })
+  }
 }
 </script>
 
