@@ -30,12 +30,6 @@ export default {
     CommitHeader,
     MyShop
   },
-  methods: {
-    
-  },
-  mounted() {
-
-  },
   async created () {
     // 捕获异常
     let resful = await restful.getShopFull().then(res => {

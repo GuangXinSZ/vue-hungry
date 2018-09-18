@@ -25,7 +25,7 @@
     </section>
     <section class="seelook">
       <article class="see-item">
-        只看内容的评价
+          只看内容的评价
       </article>
     </section>
   </div>

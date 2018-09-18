@@ -3,7 +3,6 @@
     <keep-alive>
       <index-left :goods="goods" @getchange="changeLetter"></index-left>
     </keep-alive>
-      <!-- <div class="lok" @click="click">父调子</div> -->
     <keep-alive>
      <index-right :goodsList="goods" :letter="letter" ref="child" @click="click" ></index-right>
     </keep-alive>
