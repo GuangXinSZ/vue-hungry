@@ -5,7 +5,7 @@
     <mt-field label="密码" state="success" v-model="password"></mt-field>
     <div class="login">
     <mt-button type="primary" @click="jump">登录</mt-button>
-    <mt-button  type="danger" @click="reset">重输</mt-button>
+    <mt-button  type="danger" @click="reset">重输</mt-button> 
     </div>
   </div>
 </template>
